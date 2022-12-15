@@ -2,44 +2,24 @@
 
 <script>
 
-    function dibujandoCuadradoRojo(x,y){
+    function dibujarCuadrado(x,y,color){
         let pantalla=document.querySelector('canvas');
         let pincel=pantalla.getContext('2d');
     
-        pincel.fillStyle='red'; 
+        pincel.fillStyle=color; 
         pincel.fillRect(x,y,50,50);
         pincel.strokeStyle='black'; // Define el color del borde
         pincel.strokeRect(x,y,50,50); // Dibuja el borde
     }
 
     // CUADRADOS HORIZONTALES
-    // dibujandoCuadradoVerde(0,0);
-    // dibujandoCuadradoVerde(50,0);
-    // dibujandoCuadradoVerde(100,0);
+    // dibujarCuadradoVerde(0,0);
+    // dibujarCuadradoVerde(50,0);
+    // dibujarCuadradoVerde(100,0);
 
-    function dibujandoCuadradoAmarillo(x,y){
-        let pantalla=document.querySelector('canvas');
-        let pincel=pantalla.getContext('2d');
-    
-        pincel.fillStyle='yellow';
-        pincel.fillRect(x,y,50,50);
-        pincel.strokeStyle='black';
-        pincel.strokeRect(x,y,50,50);
-    }
-
-    function dibujandoCuadradoVerde(x,y){
-        let pantalla=document.querySelector('canvas');
-        let pincel=pantalla.getContext('2d');
-    
-        pincel.fillStyle='green';
-        pincel.fillRect(x,y,50,50);
-        pincel.strokeStyle='black';
-        pincel.strokeRect(x,y,50,50);
-    }
-
-    // CUADRADOS VERTICALES
-    dibujandoCuadradoRojo(0,0);
-    dibujandoCuadradoAmarillo(0,50);
-    dibujandoCuadradoVerde(0,100);
+    // CUADRADOS VERTICALES - SEMAFORO
+    dibujarCuadrado(0,0,'red');
+    dibujarCuadrado(0,50,'yellow');
+    dibujarCuadrado(0,100,'green');
 
 </script>
