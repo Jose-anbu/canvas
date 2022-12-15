@@ -4,5 +4,20 @@
     let pantalla=document.querySelector('canvas');
     let pincel=pantalla.getContext('2d');
 
-    
+    pincel.fillStyle='green'; 
+    pincel.fillRect(0,0,50,50);
+    pincel.strokeStyle='black'; // Define el color del borde
+    pincel.strokeRect(0,0,50,50); // Dibuja el borde
+
+    pincel.fillRect(50,0,50,50);
+    pincel.strokeRect(50,0,50,50);
+
+    pincel.fillRect(100,0,50,50);
+    pincel.strokeRect(100,0,50,50);
+
+    pincel.fillRect(150,0,50,50);
+    pincel.strokeRect(150,0,50,50);
+
+    pincel.fillRect(200,0,50,50);
+    pincel.strokeRect(200,0,50,50);
 </script>
