@@ -1,0 +1,32 @@
+<canvas width="600" height="400">
+
+</canvas>
+
+<script>
+    let pantalla=document.querySelector('canvas');
+    let pincel=pantalla.getContext('2d'); // getContext() -> trae el contenido de la pantalla
+
+    pincel.fillStyle='lightgrey'; // fillStyle -> es una propiedad para definir el color
+    pincel.fillRect(0,0,600,400); // fillRect(x inicial, y inicial, x final, y final) -> función para llenar el rectàngulo
+
+    pincel.fillStyle='green';
+    pincel.fillRect(0,0,200,400);
+
+    pincel.fillStyle='red';
+    pincel.fillRect(400,0,600,400);
+
+    // Dibujar trìángulo
+    pincel.fillStyle='yellow';
+    pincel.beginPath(); // beginPath -> para indicar que se va a iniciar un nuevo camino
+    pincel.moveTo(300,200); // moveTo -> para indicar donde se tiene que posicionar el pincel
+    pincel.lineTo(200,400); // lineTo -> dibujar una linea hacia determinadas coordenadas
+    pincel.lineTo(400,400);
+    pincel.fill(); // fill -> rellena el gráfico con el color definido en línea 18
+
+    // Dibujar círculo
+    pincel.fillStyle='blue';
+    pincel.beginPath();
+    pincel.arc(300,200,50,0,2*3.14); // arc(x inicial, y inicial, radio, ángulo inicial, ángulo final)
+    pincel.fill();
+
+</script>
