@@ -1,0 +1,28 @@
+<canvas width="600" height="400">
+
+</canvas>
+
+<script>
+    let pantalla=document.querySelector('canvas');
+    let pincel=pantalla.getContext('2d');
+
+    // pincel.fillStyle='lightgrey';
+    // pincel.fillRect(0,0,600,400);
+
+    // CABEZA
+    pincel.fillStyle='darkgreen';
+    pincel.fillRect(0,0,350,300);
+
+    // OJOS
+    pincel.fillStyle='black';
+    pincel.fillRect(50,50,90,90);
+    pincel.fillRect(210,50,90,90);
+
+    // NARIZ
+    pincel.fillRect(140,140,70,100); // 70 y 100 corresponde a cuantas unidades quiero que tengan desde el pto de origen
+    
+    // BOCA
+    pincel.fillRect(140,300,-40,-110);
+    pincel.fillRect(210,300,40,-110);
+
+</script>
