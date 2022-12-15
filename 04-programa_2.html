@@ -2,18 +2,24 @@
 
 <script>
 
-    function dibujandoCuadradoVerde(x){
+    function dibujandoCuadradoVerde(x,y){
         let pantalla=document.querySelector('canvas');
         let pincel=pantalla.getContext('2d');
     
         pincel.fillStyle='green'; 
-        pincel.fillRect(x,0,50,50);
+        pincel.fillRect(x,y,50,50);
         pincel.strokeStyle='black'; // Define el color del borde
-        pincel.strokeRect(x,0,50,50); // Dibuja el borde
+        pincel.strokeRect(x,y,50,50); // Dibuja el borde
     }
 
-    dibujandoCuadradoVerde(0);
-    dibujandoCuadradoVerde(50);
-    dibujandoCuadradoVerde(100);
+    // CUADRADOS HORIZONTALES
+    // dibujandoCuadradoVerde(0,0);
+    // dibujandoCuadradoVerde(50,0);
+    // dibujandoCuadradoVerde(100,0);
+
+    // CUADRADOS VERTICALES
+    dibujandoCuadradoVerde(0,0);
+    dibujandoCuadradoVerde(0,50);
+    dibujandoCuadradoVerde(0,100);
 
 </script>
