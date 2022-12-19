@@ -4,5 +4,27 @@
     let pantalla=document.querySelector('canvas');
     let pincel=pantalla.getContext('2d');
 
+    pincel.fillStyle='lightgray';
+    pincel.fillRect(0,0,600,400);
+
+    function dibujarCirculo(x,y,radio,color){
+        pincel.fillStyle=color;
+        pincel.beginPath();
+        pincel.arc(x,y,radio,0,2*3.14);
+        pincel.fill();
+    }
     
+    function dibujarFlor(x,y,radio){
+        dibujarCirculo(x,y,radio,'red'); // CENTRO
+        dibujarCirculo(x,(y-(2*radio)),radio,'yellow'); // PETALO SUPERIOR
+        dibujarCirculo((x-(2*radio)),y,radio,'orange'); // PETALO IZQUIERDO
+        dibujarCirculo((x+(2*radio)),y,radio,'black'); // PETALO DERECHO
+        dibujarCirculo(x,(y+(2*radio)),radio,'blue'); // PETALO INFERIOR
+    }
+    
+    let radio=10;
+    let centroX=300;
+    let centroY=200;
+
+    dibujarFlor(centroX,centroY,radio);
 </script>
