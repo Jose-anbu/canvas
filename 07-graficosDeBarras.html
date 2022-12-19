@@ -14,6 +14,12 @@
 
     dibujarRectangulo(50,50,100,75,'red');
 
-    
+    function escribirTexto(x,y,texto){
+        pincel.font='15px Georgia';
+        pincel.fillStyle='black';
+        pincel.fillText(texto,x,y);
+    }
+
+    escribirTexto(50,45,'Hola José');
 
 </script>
