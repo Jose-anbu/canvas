@@ -3,5 +3,17 @@
 <script>
     let pantalla=document.querySelector('canvas');
     let pincel=pantalla.getContext('2d');
+
+    function dibujarRectangulo(x,y,base,altura,color){
+        pincel.fillStyle=color;
+        pincel.fillRect(x,y,base,altura);
+        pincel.strokeStyle='black';
+        pincel.strokeRect(x,y,base,altura);
+
+    }
+
+    dibujarRectangulo(50,50,100,75,'red');
+
     
+
 </script>
