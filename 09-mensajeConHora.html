@@ -7,6 +7,25 @@
     pincel.fillStyle='grey';
     pincel.fillRect(0,0,600,400);
 
-    
+    function mostrarMensaje(evento){
+        // console.log(evento);
+        let x=evento.pageX - pantalla.offsetLeft; // pos x
+        let y=evento.pageY - pantalla.offsetTop; // pos y
+        
+        let d=new Date(); // crea una variable tipo date
+        let hora=verificarDigito(d.getHours())+':'+verificarDigito(d.getMinutes())+':'+verificarDigito(d.getSeconds());
+        // d.getHours() -> devuelve la hora actual
+        // d.getMinutes() -> devuelve los minutos actuales
+        // d.getSeconds() -> devuelve los segundos actuales
+
+        // Función para checkear si el valor de hrs, minutos y segundos es de 1 dígito
+        function verificarDigito(digito){
+            return digito>9 ? digito:'0'+digito;
+        }
+
+        alert(`La hora es ${hora} y las coordenadas son: x = ${x}, y = ${y}`);
+    }
+
+    pantalla.onclick=mostrarMensaje;
 
 </script>
