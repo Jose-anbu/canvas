@@ -11,9 +11,22 @@
         let x=evento.pageX-pantalla.offsetLeft;
         let y=evento.pageY-pantalla.offsetTop;
 
-        console.log(evento);
-        alert(x+', '+y);
+        // console.log(evento);
+        // alert(x+', '+y);
     }
 
-    pantalla.onclick=exhibirAlerta;
+    function dibujarCirculo(evento){
+        let x=evento.pageX-pantalla.offsetLeft;
+        let y=evento.pageY-pantalla.offsetTop;
+
+        pincel.fillStyle='blue';
+        pincel.beginPath();
+        pincel.arc(x,y,10,0,2*3.14);
+        pincel.fill();
+
+        console.log(x+', '+y);
+    }
+
+    // pantalla.onclick=exhibirAlerta;
+    pantalla.onclick=dibujarCirculo;
 </script>
