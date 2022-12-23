@@ -8,8 +8,11 @@
     pincel.fillRect(0,0,600,400);
 
     function exhibirAlerta(evento){
+        let x=evento.pageX-pantalla.offsetLeft;
+        let y=evento.pageY-pantalla.offsetTop;
+
         console.log(evento);
-        alert('Ud hizo un click');
+        alert(x+', '+y);
     }
 
     pantalla.onclick=exhibirAlerta;
