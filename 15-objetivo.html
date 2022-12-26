@@ -8,6 +8,9 @@
     pincel.fillRect(0,0,600,400);
 
     let radio=10;
+    let xAleatorio=0;
+    let yAleatorio=0;
+
     function diseniarCircunferencia(x,y,radio,color){
         pincel.fillStyle=color;
         pincel.beginPath();
@@ -21,12 +24,6 @@
 
     let x=0;
 
-    function actualizarPantalla(){
-        limpiarPantalla();
-        diseniarCircunferencia(x,20,10);
-        x++;
-    }
-    
     function diseniarObjetivo(x,y){
         diseniarCircunferencia(x,y,radio+20,'red');
         diseniarCircunferencia(x,y,radio+10,'white');
@@ -37,11 +34,26 @@
         return Math.floor(Math.random()*maximo);
     }
 
-    let xAleatorio=sortearPosicion(600);
-    let yAleatorio=sortearPosicion(400);
-
-    diseniarObjetivo(xAleatorio,yAleatorio);
+    function actualizarPantalla(){
+        limpiarPantalla();
+        xAleatorio=sortearPosicion(600);
+        yAleatorio=sortearPosicion(400);
+        diseniarObjetivo(xAleatorio,yAleatorio);
+    }
     
-    // setInterval(actualizarPantalla,50);
+    setInterval(actualizarPantalla,1000);
+
+    function disparar(evento){
+        let x=evento.pageX-pantalla.offsetLeft;
+        let y=evento.pageY-pantalla.offsetTop;
+
+        // CONDICION PARA ACOTAR LOS LIMITES DE DONDE SE CONSIDERA TIRO CERTERO (centro)
+        if((x<xAleatorio+radio) && (x>xAleatorio-radio) && 
+            (y>yAleatorio-radio) && (y<yAleatorio+radio)){
+                alert('Tiro certero');
+        }
+    }
+
+    pantalla.onclick=disparar;
     
 </script>
