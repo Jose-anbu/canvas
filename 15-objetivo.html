@@ -1,0 +1,47 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    let pantalla=document.querySelector('canvas');
+    let pincel=pantalla.getContext('2d');
+
+    pincel.fillStyle='grey';
+    pincel.fillRect(0,0,600,400);
+
+    let radio=10;
+    function diseniarCircunferencia(x,y,radio,color){
+        pincel.fillStyle=color;
+        pincel.beginPath();
+        pincel.arc(x,y,radio,0,2*Math.PI);
+        pincel.fill();
+    }
+
+    function limpiarPantalla(){
+        pincel.clearRect(0,0,600,400); // Para limpiar pantalla
+    }
+
+    let x=0;
+
+    function actualizarPantalla(){
+        limpiarPantalla();
+        diseniarCircunferencia(x,20,10);
+        x++;
+    }
+    
+    function diseniarObjetivo(x,y){
+        diseniarCircunferencia(x,y,radio+20,'red');
+        diseniarCircunferencia(x,y,radio+10,'white');
+        diseniarCircunferencia(x,y,radio,'red');
+    }
+
+    function sortearPosicion(maximo){
+        return Math.floor(Math.random()*maximo);
+    }
+
+    let xAleatorio=sortearPosicion(600);
+    let yAleatorio=sortearPosicion(400);
+
+    diseniarObjetivo(xAleatorio,yAleatorio);
+    
+    // setInterval(actualizarPantalla,50);
+    
+</script>
