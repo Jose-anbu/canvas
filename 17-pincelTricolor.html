@@ -1,0 +1,52 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    let pantalla=document.querySelector('canvas');
+    let pincel=pantalla.getContext('2d');
+    pincel.fillStyle='grey';
+    pincel.fillRect(0,0,600,400);
+
+    // CREAR PALETA DE COLORES
+    let colores=['red','green','blue']
+    let x=0;
+    let xLado=50;
+    let yLado=50;
+    
+    function crearPaletaDeColores(colores){
+        for(let i=0;i<colores.length;i++){
+            pincel.fillStyle=colores[i];
+            pincel.fillRect(x,0,xLado,yLado);
+            x+=xLado;
+        }
+    }
+
+    crearPaletaDeColores(colores);
+
+    
+    let puedoDibujar=false;
+
+    function dibujarCirculo(evento){
+        if(puedoDibujar){
+            let x=evento.pageX-pantalla.offsetLeft;
+            let y=evento.pageY-pantalla.offsetTop;
+            pincel.fillStyle='blue';
+            pincel.beginPath();
+            pincel.arc(x,y,5,0,2*Math.PI);
+            pincel.fill();
+        }
+    }
+
+    pantalla.onmousemove=dibujarCirculo; // onmousemove -> captura el movimiento del mouse
+
+    function habilitarDibujar(){
+        puedoDibujar=true;
+    }
+
+    function deshabilitarDibujar(){
+        puedoDibujar=false;
+    }
+
+    pantalla.onmousedown=habilitarDibujar; // onmousedown -> cuando hacemos click y mantenemos presionado 
+    pantalla.onmouseup=deshabilitarDibujar; // onmouseup -> cuando se deja de hacer click
+
+</script>
