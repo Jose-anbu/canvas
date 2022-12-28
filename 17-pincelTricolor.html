@@ -11,6 +11,7 @@
     let x=0;
     let xLado=50;
     let yLado=50;
+    let color='blue';
     
     function crearPaletaDeColores(colores){
         for(let i=0;i<colores.length;i++){
@@ -24,14 +25,36 @@
 
     let puedoDibujar=false;
 
+    function cambiarColor(evento){
+        let x=evento.pageX-pantalla.offsetLeft;
+        let y=evento.pageY-pantalla.offsetTop;
+
+        if(y<yLado){
+            if(x<xLado){
+                color='red';
+            }
+
+            if(x>xLado && x<2*xLado){
+                color='green';
+            }
+
+            if(x>2*xLado && x<3*xLado){
+                color='blue';
+            }
+        }
+    }
+
+    pantalla.onclick=cambiarColor;
+
     function dibujarCirculo(evento){
         if(puedoDibujar){
             let x=evento.pageX-pantalla.offsetLeft;
             let y=evento.pageY-pantalla.offsetTop;
 
-            if((x>xLado*colores.length) || (y>yLado+1) ){
-                console.log('x fuera de la paleta')
-                pincel.fillStyle='blue';
+            // Se suma 5 porque se tiene en cuenta el radio del pincel
+            if((x>(xLado*colores.length)+5) || (y>yLado+5) ){
+                // X FUERA DE LA PALETA
+                pincel.fillStyle=color;
                 pincel.beginPath();
                 pincel.arc(x,y,5,0,2*Math.PI);
                 pincel.fill();
