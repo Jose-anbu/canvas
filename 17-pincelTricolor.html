@@ -6,6 +6,8 @@
     pincel.fillStyle='grey';
     pincel.fillRect(0,0,600,400);
 
+    let puedoDibujar=false;
+
     // CREAR PALETA DE COLORES
     let colores=['red','green','blue'];
     let x=0;
@@ -20,10 +22,6 @@
             x+=xLado;
         }
     }
-
-    crearPaletaDeColores(colores);
-
-    let puedoDibujar=false;
 
     function cambiarColor(evento){
         let x=evento.pageX-pantalla.offsetLeft;
@@ -44,8 +42,6 @@
         }
     }
 
-    pantalla.onclick=cambiarColor;
-
     function dibujarCirculo(evento){
         if(puedoDibujar){
             let x=evento.pageX-pantalla.offsetLeft;
@@ -62,8 +58,6 @@
         }
     }
 
-    pantalla.onmousemove=dibujarCirculo; // onmousemove -> captura el movimiento del mouse
-
     function habilitarDibujar(){
         puedoDibujar=true;
     }
@@ -72,7 +66,10 @@
         puedoDibujar=false;
     }
 
+    crearPaletaDeColores(colores);
     pantalla.onmousedown=habilitarDibujar; // onmousedown -> cuando hacemos click y mantenemos presionado 
     pantalla.onmouseup=deshabilitarDibujar; // onmouseup -> cuando se deja de hacer click
+    pantalla.onmousemove=dibujarCirculo; // onmousemove -> captura el movimiento del mouse
+    pantalla.onclick=cambiarColor;
 
 </script>
